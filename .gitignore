@@ -102,3 +102,9 @@ ENV/
 
 # Ignore .idea dir
 .idea
+
+# Ignore pycache
+**/__pycache__/*
+
+# Ignore pyc
+*.pyc
