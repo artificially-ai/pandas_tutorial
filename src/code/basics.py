@@ -20,6 +20,8 @@ DF = ds.load_gapminder()
         * DF.info(): returns information concerning the structure of the DataFrame.
         * DF.tail(): returns the last 5 rows of a Pandas' DataFrame.
 '''
+
+
 def basic_operations():
     print('Calling head() on DataFrame:', '\n', DF.head(), '\n')
     print('Checking object type:', '\n', type(DF), '\n')
@@ -27,6 +29,7 @@ def basic_operations():
     print('Calling dtypes on DataFrame:', '\n', DF.dtypes, '\n')
     print('Calling info() on DataFrame:', '\n', DF.info(), '\n')
     print('Calling tail() on DataFrame:', '\n', DF.tail(), '\n')
+
 
 '''
     Now, let's explore some more interesting operations and try to split our dataset in some different ways.
@@ -44,6 +47,8 @@ def basic_operations():
         * DF.ix[42, 'country']: returns the country on row 42.
     
 '''
+
+
 def split_operations():
     print('Printing the first 5 rows of the "country" column:', '\n', DF['country'][:5], '\n')
 
@@ -73,6 +78,7 @@ def split_operations():
 
     subset = DF.ix[[0, 99, 999], ['country', 'lifeExp', 'gdpPercap']]
     print('Printing the head of the subset:', '\n', subset, '\n')
+
 
 if __name__ == '__main__':
     basic_operations()
