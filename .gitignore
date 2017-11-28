@@ -108,3 +108,9 @@ ENV/
 
 # Ignore pyc
 *.pyc
+
+# Ignore saved files
+**/code/*pickle
+**/code/*csv
+**/code/*tsv
+**/code/*xlsx
