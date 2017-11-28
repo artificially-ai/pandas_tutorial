@@ -1,7 +1,7 @@
-'''
+"""
     Organisation: ekholabs
-    Author: wilder.rodrigues@ai.com
-'''
+    Author: wilder.rodrigues@ekholabs.ai
+"""
 
 import matplotlib.pyplot as plt
 
