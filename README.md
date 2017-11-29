@@ -14,4 +14,6 @@ This repository contains a Pandas tutorial based on what I learned from a Safari
 ### Dependencies
 
 * Pandas
-  - Once your Anacond is installed, please install Pandas by executing ```conda install pandas```
+  - ```conda install -c conda-forge pandas```
+* Seaborn
+  - ```conda install -c conda-forge seaborn```
