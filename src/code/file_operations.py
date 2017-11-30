@@ -11,19 +11,19 @@ from utils import dataset as ds
 scientists = ds.load_scientists()
 
 def save_to_pickle():
-    scientists.to_pickle('../../data/scientests.pickle')
+    scientists.to_pickle('../../data/test_scientists.pickle')
 
 
 def save_to_csv():
-    scientists.to_csv('../../data/scientests.csv')
+    scientists.to_csv('../../data/test_scientists.csv', index=False)
 
 
 def save_to_tsv():
-    scientists.to_csv('../../data/scientests.tsv', sep = '\t')
+    scientists.to_csv('../../data/test_scientists.tsv', sep = '\t')
 
 
 def save_to_excel():
-    scientists.to_excel('../../data/scientists.xlsx', index = False)
+    scientists.to_excel('../../data/test_scientists.xlsx', index = False)
 
 
 if __name__ == '__main__':
