@@ -19,7 +19,7 @@ random.seed(42)
 
 def by_age():
     avg_age = DF[DF['Age'] > DF['Age'].mean()]
-    print('Average scientist age:', '\n', avg_age, '\n')
+    print('Scientists older than average:', '\n', avg_age, '\n')
 
 
 def to_date():
@@ -28,7 +28,7 @@ def to_date():
     print('Date of birth and death:', '\n', born, died, '\n')
 
 
-def add_columns():
+def add_datetime_columns():
     born  = pd.to_datetime(DF_COPY.Born, format = '%Y-%m-%d')
     died = pd.to_datetime(DF_COPY.Died, format = '%Y-%m-%d')
 
@@ -57,7 +57,7 @@ def add_age_in_years_column():
 if __name__ == '__main__':
     by_age()
     to_date()
-    add_columns()
+    add_datetime_columns()
     shuffle_age()
     add_age_in_days_column()
     add_age_in_years_column()
