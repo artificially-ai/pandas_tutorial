@@ -14,3 +14,7 @@ def load_gapminder():
 
 def load_scientists():
     return pd.read_csv(PATH + 'scientists.csv')
+
+
+def load_survey(filename):
+    return pd.read_csv(PATH + filename)
