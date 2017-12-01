@@ -13,7 +13,7 @@ from utils import dataset as ds
 DF = ds.load_gapminder()
 
 '''
-    Let's now do somple simple statistics analysis on the data.
+    Let's now do somple simple statistical analysis on the data.
 '''
 
 
