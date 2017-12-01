@@ -18,3 +18,6 @@ def load_scientists(keep_default_na=True):
 
 def load_survey(filename, keep_default_na=True):
     return pd.read_csv(PATH + filename, keep_default_na=keep_default_na)
+
+def load_ebola(keep_default_na=True):
+    return pd.read_csv(PATH + 'ebola_country_timeseries.csv', keep_default_na=keep_default_na)
