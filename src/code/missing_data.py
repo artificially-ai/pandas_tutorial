@@ -121,5 +121,12 @@ def drop_nan_values():
     print('Dropping NaN values:', '\n', ebola.dropna().shape)
 
 
+def arithmetic_ops_missing_values():
+    ebola = ds.load_ebola()
+
+    ebola['sum_columns'] = ebola['Cases_Guinea'] + ebola['Cases_Liberia'] + ebola['Cases_SierraLeone']
+    ebola_subset = ebola.ix[:, ['Cases_Guinea', 'Cases_Liberia', 'Cases_SierraLeone']]
+    print('Summing column with NaN values', '\n', ebola_subset.head(n=10), '\n')
+
 if __name__ == '__main__':
-    drop_nan_values()
+    arithmetic_ops_missing_values()
