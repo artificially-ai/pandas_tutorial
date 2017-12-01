@@ -6,9 +6,9 @@
 import numpy as np
 import pandas as pd
 
-DS1_PATH = '../../data/test_dataset_1.csv'
-DS2_PATH = '../../data/test_dataset_2.csv'
-DS3_PATH = '../../data/test_dataset_3.csv'
+DS1_PATH = '../../data/test/dataset_1.csv'
+DS2_PATH = '../../data/test/dataset_2.csv'
+DS3_PATH = '../../data/test/dataset_3.csv'
 
 def create_dataset(index):
     A = np.random.randn(5, 4) * 5
@@ -18,7 +18,7 @@ def create_dataset(index):
             'C' : A[:, 2],
             'D': A[:, 3]}
     dataframe = pd.DataFrame(dict)
-    dataframe.to_csv('../../data/test_dataset_' + str(index) + ".csv", index=False)
+    dataframe.to_csv('../../data/test/dataset_' + str(index) + ".csv", index=False)
 
 
 def concatdatasets_rows():
