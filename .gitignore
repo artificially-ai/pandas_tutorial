@@ -110,7 +110,8 @@ ENV/
 *.pyc
 
 # Ignore saved files
-**/test*pickle
-**/test*csv
-**/test*tsv
-**/test*xlsx
+**/test/*pickle
+**/test/*csv
+**/test/*tsv
+**/test/*xlsx
+**/test/*tsv
