@@ -3,6 +3,7 @@
     Author: wilder.rodrigues@ekholabs.ai
 """
 
+import numpy as np
 import pandas as pd
 
 from utils import dataset as ds
@@ -65,7 +66,60 @@ def load_datasets_nan_na_values():
     print('Scientists without NA values:', '\n', scientists_na, '\n')
 
 
+def count_missing_data():
+    ebola = ds.load_ebola()
+    print('Eboda data:', '\n', ebola.head(), '\n')
+    print('# of entries per column:', '\n', ebola.count(), '\n')
+
+    num_rows = ebola.shape[0]
+    num_missing = num_rows - ebola.count()
+    print('# of missing entries per column:', '\n', num_missing, '\n')
+
+
+def count_missing_values_numpy():
+    ebola = ds.load_ebola()
+    print('Eboda data:', '\n', ebola.head(), '\n')
+
+    missing_values = np.count_nonzero(ebola.isnull())
+    print('Missing values in DataFrame:', '\n', missing_values, '\n')
+
+    missing_values = np.count_nonzero(ebola['Cases_Guinea'].isnull())
+    print('Missing values in Series:', '\n', missing_values, '\n')
+
+    # NaN values will be on the top, so look at the head()
+    missing_values = ebola['Cases_Guinea'].value_counts(dropna=False).head()
+    print('Missing values in Series II:', '\n', missing_values, '\n')
+
+
+def fill_missing_values():
+    ebola = ds.load_ebola()
+    # Fills missing values with the value on the previous row. In case the previous row is NaN, it doesn't do anything.
+    # We can also use fillna(0, inplace=True) to change the current DataFrame. It will avoid creating a copy
+    print('Ebola data:', '\n', ebola.fillna(0).ix[0:10, 0:5], '\n')
+
+
+def forward_fill_missing_values():
+    ebola = ds.load_ebola()
+    # Fills values with the vLAST valid observation. In case the previous row is NaN, it doesn't do anything.
+    # Observe the column 'Cases_Liberia' and the rows 2 and 3
+    print('Ebola data:', '\n', ebola.fillna(method='ffill').ix[0:10, 0:5], '\n')
+
+
+def backward_fill_missing_values():
+    ebola = ds.load_ebola()
+    # Fills missing values with the NEXT valid observation. In case the previous row is NaN, it doesn't do anything.
+    # Observe the column 'Cases_Liberia' and the rows 2 and 3
+    print('Ebola data:', '\n', ebola.fillna(method='bfill').ix[0:, 0:5].head(), '\n')
+    print('Ebola data:', '\n', ebola.fillna(method='bfill').ix[0:, 0:5].tail(), '\n')
+
+
+def drop_nan_values():
+    ebola = ds.load_ebola()
+    # One can also drop rows with NaN values, but that has to be done with caution.
+    # If we drop the th NaN values form the ebola DataFrame, we will end up with only one row.
+    # It returns a new DataFrame, unless we use inplace=True
+    print('Dropping NaN values:', '\n', ebola.dropna().shape)
+
+
 if __name__ == '__main__':
-    create_dataframe_nan_values()
-    create_dataframe_na_values()
-    load_datasets_nan_na_values()
+    drop_nan_values()
